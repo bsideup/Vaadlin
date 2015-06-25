@@ -1,0 +1,5 @@
+dependencies {
+    compile 'com.vaadin:vaadin-server'
+
+    compile 'org.jetbrains.kotlin:kotlin-stdlib'
+}

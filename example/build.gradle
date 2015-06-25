@@ -1,0 +1,7 @@
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile "com.vaadin:vaadin-spring-boot-starter"
+    
+    compile(project(":vaadlin"))
+}

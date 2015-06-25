@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:0.12.412'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE")
+    }
+}
+
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "com.vaadin:vaadin-bom:7.4.5"
+        }
+
+        dependencies {
+            dependency 'org.jetbrains.kotlin:kotlin-stdlib:0.12.412'
+            dependency "com.vaadin:vaadin-spring-boot-starter:1.0.0.beta3"
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
